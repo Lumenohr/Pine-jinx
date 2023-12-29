@@ -62,9 +62,9 @@ install() {
 		printf "Extraction failed!\nAborting...\n"
 		exit
 	fi
-	curl -s -L "https://raw.githubusercontent.com/al/Pine-jinx/main/Ryujinx.desktop" > Ryujinx.desktop
-	curl -s -L "https://raw.githubusercontent.com/al/Pine-jinx/main/Ryujinx.png" > Ryujinx.png
-	curl -s -L "https://raw.githubusercontent.com/al/Pine-jinx/main/Ryujinx.xml" > Ryujinx.xml
+	curl -s -L "https://raw.githubusercontent.com/Lumenohr/Pine-jinx/main/Ryujinx.desktop" > Ryujinx.desktop
+	curl -s -L "https://raw.githubusercontent.com/Lumenohr/Pine-jinx/main/Ryujinx.png" > Ryujinx.png
+	curl -s -L "https://raw.githubusercontent.com/Lumenohr/Pine-jinx/main/Ryujinx.xml" > Ryujinx.xml
 	if [ "$noconfirm" = "1" ]; then
 		:
 	else
@@ -72,7 +72,7 @@ install() {
 	fi
 	if [ "$gamemode" = "y" ] || [ "$gamemode" = "Y" ]; then
 		arg1="gamemoderun "
-		curl -s -L "https://raw.githubusercontent.com/al/Pine-jinx/main/gamemode.ini" > /home/${USER}/.config/gamemode.ini
+		curl -s -L "https://raw.githubusercontent.com/Lumenohr/Pine-jinx/main/gamemode.ini" > /home/${USER}/.config/gamemode.ini
 	else
 		arg1=""
 	fi
