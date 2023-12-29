@@ -19,7 +19,7 @@ getoptions() {
 	read -p "Do you want PineJinx to setup an alias for ryujinx? [y/N]: " alias
 }
 makealias() {
-    ryualias='alias ryujinx="'$arg' DOTNET_EnableAlternateStackCheck=1 GDK_BACKEND=x11 /home/'${USER}'/.local/share/Ryujinx/Ryujinx"'
+    ryualias='alias ryujinx="'$arg' DOTNET_EnableAlternateStackCheck=1 GDK_BACKEND=x11 /home/'${USER}'/.local/share/Ryujinx/Ryujinx.Ava"'
     if [ -z "${SHELL##*zsh*}" ]; then
         printf "Detected shell: ZSH\n"
         FILE="/home/${USER}/.zshrc"
@@ -51,9 +51,9 @@ removealias() {
 }
 install() {
 	printf "Downloading $version...\n"
-	curl -L "https://github.com/Ryujinx/release-channel-master/releases/download/${version}/ryujinx-${version}-linux_x64.tar.gz" > ryujinx-${version}-linux_x64.tar.gz
-	tar -xf ryujinx-${version}-linux_x64.tar.gz
-	arch_dir=$(tar --exclude='*/*' -tf ryujinx-${version}-linux_x64.tar.gz)
+	curl -L "https://github.com/Ryujinx/release-channel-master/releases/download/${version}/test-ava-ryujinx-${version}-linux_x64.tar.gz" > test-ava-ryujinx-${version}-linux_x64.tar.gz
+	tar -xf test-ava-ryujinx-${version}-linux_x64.tar.gz
+	arch_dir=$(tar --exclude='*/*' -tf test-ava-ryujinx-${version}-linux_x64.tar.gz)
 	if [ -d "$arch_dir" ]; then
 		printf "Extraction successful!\n"
 		mkdir -p /home/${USER}/.local/share/Ryujinx
@@ -108,7 +108,7 @@ install() {
 	#Place mime entry
 	mkdir -p /home/${USER}/.local/share/mime/packages && cp Ryujinx.xml /home/${USER}/.local/share/mime/packages
 	#Set the rights
-	chmod +x /home/${USER}/.local/share/Ryujinx/Ryujinx
+	chmod +x /home/${USER}/.local/share/Ryujinx/Ryujinx.Ava
 	#Update the MIME database
 	update-mime-database /home/${USER}/.local/share/mime
 	#Update the application database
